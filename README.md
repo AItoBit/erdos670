@@ -2,7 +2,7 @@
 
 This repository contains a Lean 4 / mathlib formalization of the main mathematical content of
 the paper
-["A counterexample to a dimension-free diameter conjecture of Erdos"](https://arxiv.org/abs/2604.00000).
+["Erdős's diameter conjecture for separated distances fails in high dimensions"](https://arxiv.org/abs/2604.15305).
 
 ## Main result
 
