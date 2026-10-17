@@ -27,6 +27,8 @@ constant `cStar = 1 - 1 / pi^2`.
 * "A counterexample to a dimension-free diameter conjecture of Erdos"
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

@@ -19,6 +19,8 @@ References:
 * https://github.com/google-deepmind/formal-conjectures/blob/e87ec728e936c3a42ab1d6dc26ee7854134a2949/FormalConjectures/ErdosProblems/670.lean
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace Erdos670

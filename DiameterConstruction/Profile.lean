@@ -16,6 +16,8 @@ and shows that on a Singer difference set the profile value `G(sepAngle (a - b))
 already distinguishes unordered pairs.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

@@ -14,6 +14,8 @@ This file isolates the paper's finite combinatorial step: in a Singer difference
 unordered pairs are indexed by the cyclic separation `s = 1, ..., (m-1)/2`.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

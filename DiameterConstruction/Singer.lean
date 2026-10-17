@@ -24,6 +24,8 @@ extension and transports the resulting cyclic quotient back to `ZMod`.
 
 @[expose] public section
 
+set_option backward.isDefEq.respectTransparency false
+
 namespace DiameterConstruction
 
 open Finset ZMod
@@ -542,7 +544,7 @@ theorem singer_exists {q : ℕ} (hq : IsPrimePow q) :
     Nonempty (SingerDiffSet m (q + 1)) := by
   classical
   rcases (isPrimePow_nat_iff q).1 hq with ⟨p, n, hp, hnpos, hqpow⟩
-  letI : Fact p.Prime := ⟨hp⟩
+  let : Fact p.Prime := ⟨hp⟩
   let hn : n ≠ 0 := Nat.ne_of_gt hnpos
   simpa [GaloisField.card (p := p) (n := n) hn, hqpow] using
     singer_exists_prime_power (p := p) (n := n) hn

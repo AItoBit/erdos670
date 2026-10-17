@@ -19,6 +19,8 @@ weighted polygon profile agrees with `H` on the cyclic grid `sepAngle : ZMod m -
 so the realized Euclidean distances are exactly `G(sepAngle (t - u))`.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

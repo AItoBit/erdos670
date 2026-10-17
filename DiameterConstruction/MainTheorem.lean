@@ -33,6 +33,8 @@ The construction combines:
 * `DiameterConstruction.infinitely_many_quantitative_counterexamples`
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

@@ -15,6 +15,8 @@ For nonnegative weights `W_1, ..., W_N`, it defines the associated map into
 `R^(2N)` and proves the exact squared-distance formula.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

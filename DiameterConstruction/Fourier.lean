@@ -20,6 +20,8 @@ from the paper to the profile function `H`:
 * and the perturbed odd series whose sum is exactly `H`.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

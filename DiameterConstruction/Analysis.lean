@@ -28,6 +28,8 @@ the numerator `2H·H'' - (H')²` of `G''` is bounded above by `-ε²(1 - cos θ)
 * `DiameterConstruction.G_strictConcaveOn` : `G` is strictly concave on `[0, π]`.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction

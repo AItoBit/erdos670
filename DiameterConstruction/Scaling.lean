@@ -22,6 +22,8 @@ This file formalizes the exact finite scaling argument:
   distance, both before and after reindexing into the paper's ambient dimension.
 -/
 
+set_option backward.isDefEq.respectTransparency false
+
 @[expose] public section
 
 namespace DiameterConstruction
