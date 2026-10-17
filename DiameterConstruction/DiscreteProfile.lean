@@ -56,6 +56,7 @@ lemma hasSum_two_mul_perturbedOddCoeff :
   intro k
   have hcos : Real.cos (((2 * k + 1 : Nat) : Real) * Real.pi) = -1 := by
     rw [Real.cos_nat_mul_pi]
+    rw [pow_add, pow_mul]
     norm_num
   calc
     (2 : Real) * perturbedOddCoeff k

@@ -182,7 +182,7 @@ lemma hasDerivAt_G' {θ : ℝ} (hθ₀ : 0 < θ) (hθπ : θ < π) :
     generalize sqrt (H θ) = s at hsq hs ⊢
     rw [← hsq]
     field_simp
-    <;> ring
+    ring
 
 lemma deriv_G_eq {θ : ℝ} (hθ₀ : 0 < θ) (hθπ : θ < π) :
     deriv G θ = G' θ := by
