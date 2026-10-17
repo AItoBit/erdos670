@@ -27,7 +27,8 @@ This disproves the dimension-free diameter lower bound conjectured in the paper.
 
 ## Status
 
-- `lake build` succeeds for the full project.
+- The complete proof dependency closure compiles with warnings as errors using
+  `python verify.py`. Principal theorem axioms were inspected with Lean 4.28.0.
 - No `sorry`s remain in the formalization.
 - The development includes the Singer difference-set input, the Euclidean realization, the
   scaling argument, the exact finite diameter formula, and the final asymptotic theorem.
@@ -138,3 +139,28 @@ import DiameterConstruction
 
 The development uses only the standard classical axioms already present in mathlib:
 `propext`, `Classical.choice`, and `Quot.sound`.
+
+## Formal Conjectures bridge
+
+`DiameterConstruction/RepositoryBridge.lean` states the growing-dimension
+counterexample using exactly the finite-set definition and quantifiers of
+`Erdos670.erdos_670.variants.ho` in Formal Conjectures. It derives
+`Erdos670.erdos_670.variants.uniform_in_dim` from that result.
+
+The original construction and its proof are Boon Suan Ho's work. This addition
+converts the formulation; it does not solve the fixed-dimension conjecture.
+Broad Mathlib imports were narrowed for memory use. One projective-subspace
+coercion uses its carrier explicitly. No theorem statements were changed.
+
+```bash
+lake --wfail build DiameterConstruction.RepositoryBridge
+lake env lean Verification.lean
+```
+
+`Verification.lean` prints the bridge statements and the axiom dependencies of
+the principal imported and bridge theorems.
+
+The standard Lake build was attempted on an 8 GB Windows host but not completed
+because of its memory and metadata costs. Direct Lean compilation of every
+module succeeded. Run `python verify.py` for the sequential verification used
+here; it saves compiler commands, results and source hashes locally.

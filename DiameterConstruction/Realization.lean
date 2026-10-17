@@ -2,7 +2,7 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib
+import Mathlib.Analysis.InnerProductSpace.PiL2
 import DiameterConstruction.Profile
 
 /-!

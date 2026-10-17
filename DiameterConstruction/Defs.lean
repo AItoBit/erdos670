@@ -2,7 +2,10 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+import Mathlib.Analysis.SpecialFunctions.Sqrt
+import Mathlib.Analysis.Convex.Deriv
+import Mathlib.Tactic
 
 /-!
 # Counterexample to a dimension-free diameter conjecture of Erdos - Definitions

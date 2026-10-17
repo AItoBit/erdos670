@@ -3,6 +3,8 @@ Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
 import DiameterConstruction.Defs
+import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+import Mathlib.Analysis.Real.Pi.Bounds
 
 /-!
 # Analytic properties of H and G

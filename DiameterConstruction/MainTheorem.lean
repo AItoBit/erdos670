@@ -6,6 +6,8 @@ import DiameterConstruction.Analysis
 import DiameterConstruction.DiscreteProfile
 import DiameterConstruction.Scaling
 import DiameterConstruction.Singer
+import Mathlib.Analysis.SpecificLimits.Basic
+import Mathlib.Data.Nat.Prime.Infinite
 
 /-!
 # Main theorem - A counterexample to Erdos's dimension-free diameter conjecture

@@ -2,7 +2,11 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib
+import Mathlib.FieldTheory.Finite.Extension
+import Mathlib.RingTheory.Trace.Basic
+import Mathlib.GroupTheory.SpecificGroups.Cyclic
+import Mathlib.Algebra.IsPrimePow
+import Mathlib.Tactic
 import Mathlib.LinearAlgebra.Projectivization.Subspace
 import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
@@ -261,7 +265,7 @@ def quotientSubtypeEquiv (s : Set (ℙ K L)) :
 
 def singerSubtypeEquivProjectivization :
     {d : Q // d ∈ singerSet p n} ≃ ℙ K (traceHyperplane p n) :=
-  (quotientSubtypeEquiv p n ((traceHyperplane p n).projectivization)).trans
+  (quotientSubtypeEquiv p n ((traceHyperplane p n).projectivization.carrier)).trans
     (projectivizationSubtypeEquiv (traceHyperplane p n)).symm
 
 theorem singerSet_card :
