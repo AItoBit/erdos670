@@ -2,13 +2,15 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib.FieldTheory.Finite.Extension
-import Mathlib.RingTheory.Trace.Basic
-import Mathlib.GroupTheory.SpecificGroups.Cyclic
-import Mathlib.Algebra.IsPrimePow
-import Mathlib.Tactic
-import Mathlib.LinearAlgebra.Projectivization.Subspace
-import Mathlib.LinearAlgebra.Projectivization.Cardinality
+module
+
+public import Mathlib.FieldTheory.Finite.Extension
+public import Mathlib.RingTheory.Trace.Basic
+public import Mathlib.GroupTheory.SpecificGroups.Cyclic
+public import Mathlib.Algebra.IsPrimePow
+public import Mathlib.Tactic
+public import Mathlib.LinearAlgebra.Projectivization.Subspace
+public import Mathlib.LinearAlgebra.Projectivization.Cardinality
 
 /-!
 # Singer difference sets
@@ -19,6 +21,8 @@ This file formalizes Singer's theorem: for every prime power `q`, there exists a
 The construction follows the finite-field proof via the trace-zero hyperplane in a cubic
 extension and transports the resulting cyclic quotient back to `ZMod`.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

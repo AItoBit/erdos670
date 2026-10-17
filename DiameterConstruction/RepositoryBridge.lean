@@ -2,8 +2,10 @@
 Copyright 2026 The Formal Conjectures Authors.
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.MainTheorem
-import Mathlib.Data.Sym.Sym2
+module
+
+public import DiameterConstruction.MainTheorem
+public import Mathlib.Data.Sym.Sym2
 
 /-!
 # The Formal Conjectures formulation of Ho's counterexample
@@ -16,6 +18,8 @@ References:
 * https://arxiv.org/abs/2604.15305
 * https://github.com/google-deepmind/formal-conjectures/blob/e87ec728e936c3a42ab1d6dc26ee7854134a2949/FormalConjectures/ErdosProblems/670.lean
 -/
+
+@[expose] public section
 
 namespace Erdos670
 

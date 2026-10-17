@@ -2,9 +2,11 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.Analysis
-import DiameterConstruction.Construction
-import Mathlib.Data.ZMod.ValMinAbs
+module
+
+public import DiameterConstruction.Analysis
+public import DiameterConstruction.Construction
+public import Mathlib.Data.ZMod.ValMinAbs
 
 /-!
 # Cyclic separation angles and the distance profile
@@ -13,6 +15,8 @@ This file packages the cyclic separation parameter attached to a difference in `
 and shows that on a Singer difference set the profile value `G(sepAngle (a - b))`
 already distinguishes unordered pairs.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

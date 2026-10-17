@@ -123,7 +123,9 @@ The most useful theorems and definitions to start from are:
 
 ## Build
 
-This project targets Lean `v4.28.0` with mathlib `v4.28.0`.
+The Palomar submission branch targets Lean `v4.35.0-rc2` and the matching pinned
+Mathlib revision. The verified Lean 4.28 reproduction remains at commit
+`5b34bd5e9d0bcb3af86dbc5b65b6efe02e5bff30`.
 
 ```bash
 lake build
@@ -160,7 +162,24 @@ lake env lean Verification.lean
 `Verification.lean` prints the bridge statements and the axiom dependencies of
 the principal imported and bridge theorems.
 
-The standard Lake build was attempted on an 8 GB Windows host but not completed
+The Lean 4.28 standard Lake build was attempted on an 8 GB Windows host but not completed
 because of its memory and metadata costs. Direct Lean compilation of every
 module succeeded. Run `python verify.py` for the sequential verification used
 here; it saves compiler commands, results and source hashes locally.
+
+## Palomar comparison
+
+`Challenge.lean` states the exact finite-set counterexample and the uniform
+refutation, using only Mathlib imports. Its two deliberate theorem holes are
+comparison targets, not proof claims. `Solution.lean` imports the complete
+included proof, independently of the Challenge. `comparator.json` selects both
+statements and permits only `propext`, `Quot.sound`, and `Classical.choice`.
+
+The source-based provenance is recorded in `formalization.yaml`. This repository
+contains Ho's full substantive proof, with attribution and its MIT licence.
+The module-system port preserves the mathematical statements. Other exploratory
+remarks in the paper, such as improving the asymptotic constant, are outside
+the submitted result.
+
+The pinned Palomar reusable workflow runs the required complete mechanical
+preflight. An earlier compiler check is not a substitute for its passing report.

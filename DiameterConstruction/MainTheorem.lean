@@ -2,12 +2,14 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.Analysis
-import DiameterConstruction.DiscreteProfile
-import DiameterConstruction.Scaling
-import DiameterConstruction.Singer
-import Mathlib.Analysis.SpecificLimits.Basic
-import Mathlib.Data.Nat.Prime.Infinite
+module
+
+public import DiameterConstruction.Analysis
+public import DiameterConstruction.DiscreteProfile
+public import DiameterConstruction.Scaling
+public import DiameterConstruction.Singer
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import Mathlib.Data.Nat.Prime.Infinite
 
 /-!
 # Main theorem - A counterexample to Erdos's dimension-free diameter conjecture
@@ -30,6 +32,8 @@ The construction combines:
 * `DiameterConstruction.primePowerDiameter_over_cardSq_tendsto_cStar`
 * `DiameterConstruction.infinitely_many_quantitative_counterexamples`
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

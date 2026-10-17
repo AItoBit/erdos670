@@ -1,0 +1,9 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "Erdos670.erdos_670.variants.ho",
+    "Erdos670.erdos_670.variants.uniform_in_dim"
+  ],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

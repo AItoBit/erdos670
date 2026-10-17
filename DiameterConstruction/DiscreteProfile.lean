@@ -2,8 +2,10 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.Fourier
-import DiameterConstruction.Realization
+module
+
+public import DiameterConstruction.Fourier
+public import DiameterConstruction.Realization
 
 /-!
 # The discrete profile realized by the Fourier weights
@@ -16,6 +18,8 @@ coming from the perturbed odd Fourier coefficients. It proves that the resulting
 weighted polygon profile agrees with `H` on the cyclic grid `sepAngle : ZMod m -> R`,
 so the realized Euclidean distances are exactly `G(sepAngle (t - u))`.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

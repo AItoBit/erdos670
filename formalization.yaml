@@ -1,0 +1,155 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: v0.4
+
+project:
+  name: "Ho's growing-dimension counterexample for Erdős problem 670"
+  description: >-
+    Reproduction and module-system port of Boon Suan Ho's complete Lean proof
+    of the growing-dimension counterexample. For every positive epsilon there
+    are infinitely many n admitting n points in R^(n^2-n), with distances of
+    distinct unordered pairs separated by at least one and diameter at most
+    (1 - 1/pi^2 + epsilon)n^2. This disproves the asymptotic lower bound
+    uniformly over dimensions. The included proof develops Singer difference
+    sets, the Fourier distance profile, Euclidean realization, scaling, and
+    the asymptotic estimate. A finite-set bridge supplies the exact
+    Formal Conjectures statements. No mathematical novelty is claimed;
+    the fixed-dimension conjecture remains open. The result is relevant to
+    discrete geometers studying distance sets and extremal Euclidean configurations.
+  authors: ["Boon Suan Ho", "AItoBit (GitHub account; reproduction and module port)"]
+  responsible_maintainers: ["AItoBit (GitHub account)"]
+  license: MIT
+
+sources:
+  - title: "Erdős's diameter conjecture for separated distances fails in high dimensions"
+    authors: ["Boon Suan Ho"]
+    id: "https://arxiv.org/abs/2604.15305v1"
+    type: paper
+    location: "Theorem 1 and Sections 2–4; Remark 9 for the fixed-dimension limitation"
+    relationship: formalizes
+    note: >-
+      Ho's existing result and proof are reproduced, with a finite-set
+      statement bridge. The original formalization is identified separately
+      below. No new mathematical solution is asserted.
+  - title: "Ho's original complete Lean formalization of Erdős problem 670"
+    authors: ["Boon Suan Ho"]
+    id: "https://github.com/boonsuan/erdos670/tree/c053b2580e0cf7e74c8d905f96feb101061612a3"
+    type: other
+    location: "DiameterConstruction modules"
+    relationship: adapts
+    license: MIT
+    note: >-
+      The substantive proof source is included in this repository, with
+      narrowed imports, one explicit projective-subspace carrier coercion,
+      a finite-set bridge, and a Lean module-system port.
+  - title: "Some unsolved problems"
+    authors: ["Paul Erdős"]
+    type: paper
+    location: "1997, Problem 20, page 6"
+    relationship: background
+    note: "Original diameter question; this submission addresses the dimension-uniform variant."
+
+related_formalizations:
+  - id: "https://github.com/boonsuan/erdos670"
+    revision: "c053b2580e0cf7e74c8d905f96feb101061612a3"
+    relationship: builds-on
+    note: "Original substantive proof source, included and adapted here."
+  - id: "https://github.com/google-deepmind/formal-conjectures"
+    revision: "e87ec728e936c3a42ab1d6dc26ee7854134a2949"
+    location: "FormalConjectures/ErdosProblems/670.lean"
+    relationship: other
+    note: "Exact finite-set statements of the ho and uniform_in_dim variants."
+
+classification:
+  arxiv: ["math.CO", "math.MG"]
+  msc2020: ["52C10", "05B10"]
+
+status:
+  scope: >-
+    Complete existing growing-dimension proof, reproduced with a statement
+    bridge. The repository contains the substantive proof development,
+    rather than only a comparison wrapper.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+  main_results:
+    - declaration: "Erdos670.erdos_670.variants.ho"
+      file: "DiameterConstruction/RepositoryBridge.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+    - declaration: "Erdos670.erdos_670.variants.uniform_in_dim"
+      file: "DiameterConstruction/RepositoryBridge.lean"
+      sorry_count: 0
+      axioms: ["propext", "Classical.choice", "Quot.sound"]
+      comparator_config: "comparator.json"
+      literature_dependencies: []
+  verification: >-
+    The full proof and bridge compiled with warnings as errors on Lean 4.28.0,
+    and their principal axiom reports contain only propext, Classical.choice,
+    and Quot.sound. That earlier check is not the mechanical certificate for
+    the Lean 4.35.0-rc2 module-system port: the exact submission commit must pass
+    Palomar's complete mechanical preflight. The deliberate Challenge holes are excluded
+    from proof-development sorry counts.
+
+automation:
+  methods:
+    - method: agent
+      models: ["GPT-5.4 Pro"]
+      framework: "GPT-5.4 Pro and Aristotle"
+      tool_setup: "Original proof production, as acknowledged in Ho's paper"
+      prompting_notes: "Historical process is reported from the original paper; no prompt log was reconstructed."
+    - method: agent
+      models: ["GPT-6"]
+      framework: "Codex desktop"
+      tool_setup: >-
+        Consensus source discovery, Erdős Research Lab and Mathematics
+        Research Studio workflows, independent source audit, Lean compilation,
+        axiom inspection, finite-set bridge, and module-system packaging.
+      prompting_notes: >-
+        The user selected verification and reproduction of Ho's existing full
+        growing-dimension proof, followed by a Formal Conjectures PR and Palomar submission.
+  notes: >-
+    Human responsibility is retained by the listed maintainers. Automated
+    systems are credited here rather than as project authors. Costs and
+    historical prompt logs are not available.
+
+fidelity:
+  divergences: >-
+    The quantitative infinite family is converted to exact finite-set
+    cardinality and Filter.Frequently statements and then used to refute
+    the dimension-uniform lower bound. Distinct unordered pairs, including
+    reversal equivalence, are preserved by Sym2. The ambient dimension is
+    exactly n^2-n. Fixed-dimension quantifiers are not exchanged. Source
+    theorem statements are unchanged by import narrowing or module porting.
+
+review:
+  status: agent-reviewed
+  reviewers: ["Independent Codex source-audit agent"]
+  notes: >-
+    A separate agent audited Ho's paper, imported theorem, definitions, and
+    bridge quantifiers. It identified a conjunction-destructuring error in
+    an earlier bridge draft; that error was corrected before successful
+    Lean 4.28.0 compilation. All substantive paper sections and references,
+    the original problem page, and the supplied forum printout were reviewed.
+    This is an agent review, not human peer review. Comparator and NanoDa
+    checks are reported separately by Palomar's mechanical preflight for the
+    exact Lean 4.35.0-rc2 submission snapshot.
+
+alignment:
+  namespace: Erdos670
+  statements:
+    - source: "Ho's main quantitative infinite-family theorem"
+      lean: "Erdos670.erdos_670.variants.ho"
+      module: "DiameterConstruction.RepositoryBridge"
+      status: proved
+      note: "For every positive epsilon, frequently n; exact n-point cardinality and dimension n^2-n."
+    - source: "Failure of the diameter lower bound uniformly in dimension"
+      lean: "Erdos670.erdos_670.variants.uniform_in_dim"
+      module: "DiameterConstruction.RepositoryBridge"
+      status: proved
+      note: "Derived from ho using a positive constant gap and n at least one."
+
+acknowledgements: >-
+  Boon Suan Ho supplied the original construction, proof, and Lean
+  development. Mathlib supplies the background library.

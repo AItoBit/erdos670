@@ -2,8 +2,10 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib.Analysis.InnerProductSpace.PiL2
-import DiameterConstruction.Profile
+module
+
+public import Mathlib.Analysis.InnerProductSpace.PiL2
+public import DiameterConstruction.Profile
 
 /-!
 # Euclidean realization of the cyclic profile
@@ -12,6 +14,8 @@ This file formalizes the weighted product-of-polygons construction from the pape
 For nonnegative weights `W_1, ..., W_N`, it defines the associated map into
 `R^(2N)` and proves the exact squared-distance formula.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

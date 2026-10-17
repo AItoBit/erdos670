@@ -2,8 +2,10 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.DiscreteProfile
-import DiameterConstruction.Singer
+module
+
+public import DiameterConstruction.DiscreteProfile
+public import DiameterConstruction.Singer
 
 /-!
 # Scaling the discrete realization
@@ -19,6 +21,8 @@ This file formalizes the exact finite scaling argument:
 * and the diameter of the scaled point set is identified exactly with the top grid
   distance, both before and after reindexing into the paper's ambient dimension.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

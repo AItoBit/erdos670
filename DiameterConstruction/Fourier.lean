@@ -2,8 +2,10 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib.NumberTheory.ZetaValues
-import DiameterConstruction.Defs
+module
+
+public import Mathlib.NumberTheory.ZetaValues
+public import DiameterConstruction.Defs
 
 /-!
 # Fourier identities for the Erdos counterexample profile
@@ -17,6 +19,8 @@ from the paper to the profile function `H`:
   `∑ (1 - cos ((2k+1) θ)) / (2k+1)^2 = π θ / 4` on `[0, π]`,
 * and the perturbed odd series whose sum is exactly `H`.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

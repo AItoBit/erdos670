@@ -1,4 +1,6 @@
-import DiameterConstruction.RepositoryBridge
+module
+
+public import DiameterConstruction.RepositoryBridge
 
 set_option pp.proofs false
 

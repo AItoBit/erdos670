@@ -2,8 +2,10 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.Singer
-import Mathlib.Data.ZMod.ValMinAbs
+module
+
+public import DiameterConstruction.Singer
+public import Mathlib.Data.ZMod.ValMinAbs
 
 /-!
 # Combinatorial consequences of Singer difference sets
@@ -11,6 +13,8 @@ import Mathlib.Data.ZMod.ValMinAbs
 This file isolates the paper's finite combinatorial step: in a Singer difference set,
 unordered pairs are indexed by the cyclic separation `s = 1, ..., (m-1)/2`.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

@@ -1,13 +1,15 @@
-import DiameterConstruction.Defs
-import DiameterConstruction.Analysis
-import DiameterConstruction.Construction
-import DiameterConstruction.Fourier
-import DiameterConstruction.Profile
-import DiameterConstruction.Realization
-import DiameterConstruction.DiscreteProfile
-import DiameterConstruction.Scaling
-import DiameterConstruction.Singer
-import DiameterConstruction.MainTheorem
+module
+
+public import DiameterConstruction.Defs
+public import DiameterConstruction.Analysis
+public import DiameterConstruction.Construction
+public import DiameterConstruction.Fourier
+public import DiameterConstruction.Profile
+public import DiameterConstruction.Realization
+public import DiameterConstruction.DiscreteProfile
+public import DiameterConstruction.Scaling
+public import DiameterConstruction.Singer
+public import DiameterConstruction.MainTheorem
 
 /-!
 # DiameterConstruction

@@ -2,9 +2,11 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import DiameterConstruction.Defs
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
-import Mathlib.Analysis.Real.Pi.Bounds
+module
+
+public import DiameterConstruction.Defs
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Bounds
+public import Mathlib.Analysis.Real.Pi.Bounds
 
 /-!
 # Analytic properties of H and G
@@ -25,6 +27,8 @@ the numerator `2H·H'' - (H')²` of `G''` is bounded above by `-ε²(1 - cos θ)
 * `DiameterConstruction.G_strictMonoOn` : `G` is strictly increasing on `[0, π]`.
 * `DiameterConstruction.G_strictConcaveOn` : `G` is strictly concave on `[0, π]`.
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 

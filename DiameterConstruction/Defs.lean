@@ -2,10 +2,12 @@
 Copyright (c) 2026 Ho Boon Suan
 Released under the MIT license, as described in the file LICENSE.
 -/
-import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
-import Mathlib.Analysis.SpecialFunctions.Sqrt
-import Mathlib.Analysis.Convex.Deriv
-import Mathlib.Tactic
+module
+
+public import Mathlib.Analysis.SpecialFunctions.Trigonometric.Deriv
+public import Mathlib.Analysis.SpecialFunctions.Sqrt
+public import Mathlib.Analysis.Convex.Deriv
+public import Mathlib.Tactic
 
 /-!
 # Counterexample to a dimension-free diameter conjecture of Erdos - Definitions
@@ -24,6 +26,8 @@ constant `cStar = 1 - 1 / pi^2`.
 
 * "A counterexample to a dimension-free diameter conjecture of Erdos"
 -/
+
+@[expose] public section
 
 namespace DiameterConstruction
 
