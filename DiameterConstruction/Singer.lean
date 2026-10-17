@@ -78,7 +78,7 @@ def projectivizationSubtypeEquiv (s : Submodule K V) :
           Projectivization.exists_smul_eq_mk_rep (K := K) (V := V) (v := (v : V))
             (by simpa using hv)
         refine ⟨a, Subtype.ext ?_⟩
-        simpa [Projectivization.map_mk] using ha
+        simpa [Projectivization.map_mk, Units.smul_def] using ha
   right_inv x := by
     apply Subtype.ext
     change
@@ -343,7 +343,7 @@ def localIntersectionToTracePoints (u : Lˣ) :
             (projectivizationSubtypeMap p n (traceHyperplane p n) x.1)) ∈
             (traceHyperplane p n).projectivization
       rw [quotientToProj_mul p n u]
-      simpa [left_inv_projToQuotient p n
+      simpa [tracePointCondition, left_inv_projToQuotient p n
           (projectivizationSubtypeMap p n (traceHyperplane p n) x.1)] using x.2
   left_inv d := by
     apply Subtype.ext

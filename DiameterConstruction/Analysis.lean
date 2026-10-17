@@ -52,9 +52,7 @@ lemma hasDerivAt_H (θ : ℝ) : HasDerivAt H (H' θ) θ := by
     (HasDerivAt.sub
       (HasDerivAt.div_const (HasDerivAt.const_mul Real.pi (hasDerivAt_id θ)) 4)
       (HasDerivAt.div_const (HasDerivAt.const_sub (1 : ℝ) (Real.hasDerivAt_cos θ)) 8))
-    using 1
-  unfold H'
-  ring
+    using 1 <;> first | rfl | (dsimp [H']; ring)
 
 lemma H'_pos (θ : ℝ) : 0 < H' θ := by
   exact sub_pos_of_lt ( by nlinarith [ Real.pi_gt_three, Real.sin_le_one θ ] )
@@ -79,8 +77,9 @@ lemma continuousOn_H : ContinuousOn H (Icc 0 π) :=
   continuous_H.continuousOn
 
 lemma hasDerivAt_H' (θ : ℝ) : HasDerivAt H' (H'' θ) θ := by
-  convert HasDerivAt.sub ( hasDerivAt_const _ _ ) ( Real.hasDerivAt_sin θ |> HasDerivAt.div_const <| 8 ) using 1 ; norm_num [ H'' ];
-  ring
+  convert (hasDerivAt_const θ (Real.pi / 4)).sub
+    ((Real.hasDerivAt_sin θ).div_const 8) using 1 <;>
+    first | rfl | (dsimp [H'']; ring)
 
 /-! ### Properties of G -/
 
@@ -103,8 +102,8 @@ lemma G_sq {θ : ℝ} (hθ₀ : 0 ≤ θ) (hθπ : θ ≤ π) : G θ ^ 2 = H θ 
 
 lemma hasDerivAt_G {θ : ℝ} (hθ₀ : 0 < θ) (hθπ : θ ≤ π) :
     HasDerivAt G (G' θ) θ := by
-      convert HasDerivAt.sqrt ( hasDerivAt_H θ ) _ using 1;
-      exact H_ne_zero hθ₀ hθπ
+  change HasDerivAt (fun x => sqrt (H x)) (H' θ / (2 * sqrt (H θ))) θ
+  exact (hasDerivAt_H θ).sqrt (H_ne_zero hθ₀ hθπ)
 
 lemma continuousOn_G : ContinuousOn G (Icc 0 π) := by
   exact ContinuousOn.sqrt ( continuousOn_H )
@@ -171,11 +170,19 @@ The derivative of `G'` (i.e., `G''`) is `G''_num(θ) / (4 · H(θ)^(3/2))`.
 -/
 lemma hasDerivAt_G' {θ : ℝ} (hθ₀ : 0 < θ) (hθπ : θ < π) :
     HasDerivAt G' (G''_num θ / (4 * H θ * sqrt (H θ))) θ := by
-      convert HasDerivAt.div ( hasDerivAt_H' θ ) ( HasDerivAt.mul ( hasDerivAt_const _ _ ) <| HasDerivAt.sqrt ( hasDerivAt_H θ ) _ ) _ using 1;
-      · norm_num [ G''_num, H'' ];
-        grind;
-      · exact H_ne_zero hθ₀ hθπ.le;
-      · exact mul_ne_zero two_ne_zero <| ne_of_gt <| Real.sqrt_pos.mpr <| H_pos hθ₀ hθπ.le
+  have hH := H_pos hθ₀ hθπ.le
+  have hs : sqrt (H θ) ≠ 0 := ne_of_gt (Real.sqrt_pos.mpr hH)
+  have hsq : sqrt (H θ) ^ 2 = H θ := Real.sq_sqrt hH.le
+  have hden := (hasDerivAt_const θ (2 : ℝ)).mul
+    ((hasDerivAt_H θ).sqrt (ne_of_gt hH))
+  have hdiv := (hasDerivAt_H' θ).div hden (mul_ne_zero two_ne_zero hs)
+  convert hdiv using 1
+  · rfl
+  · dsimp [G''_num]
+    generalize sqrt (H θ) = s at hsq hs ⊢
+    rw [← hsq]
+    field_simp
+    <;> ring
 
 lemma deriv_G_eq {θ : ℝ} (hθ₀ : 0 < θ) (hθπ : θ < π) :
     deriv G θ = G' θ := by
